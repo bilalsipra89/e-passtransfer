@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einladung zum E-Passtransfer-Dienst</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            border: 1px solid #e4e4e4;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+        .header h2 {
+            color: #000000;
+            margin: 0;
+        }
+        ul {
+            background-color: #FFFDF0;
+            padding: 15px 15px 15px 35px;
+            border-radius: 5px;
+            border: 1px solid #FFD700;
+        }
+        .button {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #000000 !important;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid #FFD700;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>E-Passtransfer</h2>
+        </div>
+        
+        {% load i18n %}{% autoescape off %}
+        <p>Hallo {{ employee_email }},</p>
+
+        <p>Sie wurden eingeladen, sich als {{ role }} für den e-passtransfer-Dienst zu registrieren.</p>
+
+        <p><strong>Unternehmensdetails:</strong></p>
+        <ul>
+            <li>Unternehmen: {{ company_name }}</li>
+            <li>Website: {{ website }}</li>
+            <li>Inhaber: {{ owner_name }}</li>
+            <li>Kontakt: {{ owner_email }}</li>
+        </ul>
+
+        <p>Klicken Sie auf den folgenden Link, um Ihre Registrierung abzuschließen:</p>
+        <p style="text-align: center;"><a href="{{ registration_link }}" class="button">Jetzt registrieren</a></p>
+
+        <p>Falls der Link nicht funktioniert, kopieren Sie bitte diesen Link in Ihren Browser.</p>
+        <p style="word-break: break-all; background-color: #FFFDF0; padding: 10px; border-radius: 3px;">{{ registration_link }}</p>
+
+        <p>Vielen Dank für Ihr Vertrauen in e-passtransfer!</p>
+        <p> Bei Fragen hilft Ihnen unser Support-Team jederzeit gern weiter.</p>
+
+        <div class="footer">
+            <p>Freundliche Grüße</p>
+            <p>Ihr E-Passtransfer-Team</p>
+        </div>
+        {% endautoescape %} 
+    </div>
+</body>
+</html> 

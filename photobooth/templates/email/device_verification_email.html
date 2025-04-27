@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neue Geräteverifizierung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            border: 1px solid #e4e4e4;
+            border-radius: 5px;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 10px;
+        }
+        .header h2 {
+            color: #000000;
+            margin: 0;
+        }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+        .otp-container {
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            background-color: #FFFDF0;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+        }
+        .otp-code {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #000000;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #777;
+            text-align: center;
+            border-top: 1px solid #FFD700;
+            padding-top: 15px;
+        }
+        .warning {
+            color: #e74c3c;
+            font-style: italic;
+        }
+        .button {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #000000;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>E-Passtransfer</h2>
+        </div>
+        
+        <p>Hallo {% if user_name %}{{ user_name }}{% else %}Nutzer{% endif %},</p>
+        
+        <p>wir haben festgestellt, dass jemand versucht, sich von einem neuen Gerät bei Ihrem EpassTransfer-Konto anzumelden.</p>
+        
+        <p>Aus Sicherheitsgründen benötigen Sie einen Bestätigungscode, um dieses neue Gerät zu verifizieren.</p>
+        
+        <div class="otp-container">
+            <p>Ihr Bestätigungscode lautet:</p>
+            <p class="otp-code">{{ otp }}</p>
+            <p>Dieser Code ist für 10 Minuten gültig.</p>
+        </div>
+        
+        <p>Falls Sie diese Anmeldung nicht initiiert haben, ignorieren Sie bitte diese E-Mail und ändern Sie Ihr Passwort umgehend.</p>
+        
+        <p>Bei Fragen stehen wir Ihnen gerne zur Verfügung.</p>
+        
+        <p>Mit freundlichen Grüßen,<br>
+        Das EpassTransfer-Team</p>
+        
+        <div class="footer">
+            <p class="warning">Bitte geben Sie diesen Code an niemanden weiter.</p>
+            <p>Diese E-Mail wurde automatisch generiert. Bitte antworten Sie nicht darauf.</p>
+        </div>
+    </div>
+</body>
+</html>

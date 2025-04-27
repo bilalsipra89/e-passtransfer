@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: e-passtransfer
+    env: docker
+    buildCommand: docker build -t e-passtransfer .
+    # startCommand: docker run -p $PORT:$PORT e-passtransfer
+    envVars:
+
+      - key: SECRET_KEY
+        sync: false
+      - key: DEBUG
+        value: "False"
+      - key: ALLOWED_HOSTS
+        value: "e-passtransfer.onrender.com,.onrender.com"
+      
+
+      # Database credentials
+      - key: DB_NAME
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      
+      # AWS credentials
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_STORAGE_BUCKET_NAME
+        sync: false
+      - key: AWS_S3_REGION_NAME
+        sync: false
+      
+      # Email credentials
+      - key: EMAIL_HOST
+        sync: false
+      - key: EMAIL_PORT
+        sync: false
+      - key: EMAIL_HOST_USER
+        sync: false
+      - key: EMAIL_HOST_PASSWORD
+        sync: false
+      - key: DEFAULT_FROM_EMAIL
+        sync: false
+
+
+      # EID Token Settings
+      - key: EID_CLIENT_SECRET
+        sync: false
+      - key: EID_CERT_PASSWORD
+        sync: false
+
+
